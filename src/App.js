@@ -1,18 +1,22 @@
 import React from 'react';
 import './App.css';
 import Form from './Components/Form';
-import TodoList from './Components/TodoList';
-import TodoCount from './Components/TodosCount';
 
+class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <Form />
-      <TodoList />
-      <TodoCount />
-    </div>
-  );
-}
+  render() {
+    const { title, handleChange, handleSubmit, editTodo, handleEdit } = this.props;
+    return (
+      <div className="App">
+        <Form title={title}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          editTodo={editTodo}
+          handleEdit={handleEdit} />
+      </div>
+    )
+  }
+};
 
 export default App;
+

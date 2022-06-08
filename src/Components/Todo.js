@@ -1,99 +1,68 @@
 import React from "react";
-import check from "./img/circle-check-solid.svg";
-import remove from "./img/trash-can-solid.svg";
-import undo from "./img/undo.svg";
-
-let url = "http://localhost:3001";
+import check from "../Components/img/circle-check-solid.svg";
+import undo from "../Components/img/undo.svg";
+import remove from "../Components/img/trash-can-solid.svg";
+import edit from "../Components/img/pencil.png";
 
 class Todo extends React.Component {
-    constructor() {
-        super();
 
-        this.state = {
-            todos: [],
-        }
+    editTodo = (e) => {
+        const id = e.target.getAttribute("data-edit");
+        this.props.editTodo(id);
     };
 
-    getTodos() {
-        fetch(url + "/todos")
-            .then(res => res.json())
-            .then((json) => {
-                this.setState({
-                    todos: json
-                })
-            })
+    finishTodo = (e) => {
+        const id = e.target.getAttribute("data-check");
+        this.props.finishTodo(id);
     };
 
-    componentDidMount() {
-        this.getTodos()
+    undoTodo = (e) => {
+        const id = e.target.getAttribute("data-undo");
+        this.props.undoTodo(id);
     };
 
-    finishTodo(e) {
-        const id = e.target.getAttribute("data-check")
-        const finish = {
-            completed: true
-        }
-        fetch(url + "/todos/" + id, {
-            method: "PATCH",
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8'
-            },
-            body: JSON.stringify(finish)
-        })
-            .then(res => res.json())
-        window.location.reload(false);
-    };
-
-    undoTodo(e) {
-        const id = e.target.getAttribute("data-undo")
-        const undo = {
-            completed: false
-        }
-        fetch(url + "/todos/" + id, {
-            method: "PATCH",
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8'
-            },
-            body: JSON.stringify(undo)
-        })
-            .then(res => res.json())
-        window.location.reload(false)
-    }
-
-    removeTodo(e) {
-        const id = e.target.getAttribute("data-remove")
-        fetch(url + "/todos/" + id, {
-            method: "DELETE",
-        })
-            .then(res => res.json())
-        window.location.reload(false);
+    deleteTodo = (e) => {
+        const id = e.target.getAttribute("data-remove");
+        this.props.deleteTodo(id);
     };
 
     render() {
-        const { todos } = this.state;
+        const { event, id, completed } = this.props;
         return (
-            <div>
-                {
-                    todos.map((todo) => (
-                        <div className="output" key={todo.id}>
-                            <div className="event-info">
-                                <p className={`todo-item ${todo.completed ? "completed" : ""}`}>{todo.event}</p>
-                            </div>
-                            <div className="check">
-                                <img onClick={e => this.finishTodo(e)} alt="check" src={check} data-check={todo.id} title="Finish event!"></img>
-                            </div>
-                            <div className="undo">
-                                <img onClick={e => this.undoTodo(e)} alt="undo" src={undo} data-undo={todo.id} title="Undo finish event!"></img>
-                            </div>
-                            <div className="remove">
-                                <img onClick={e => this.removeTodo(e)} alt="remove" src={remove} data-remove={todo.id} title="Delete event!"></img>
-                            </div>
-                        </div>
-                    ))
-                }
+            <div className="output">
+                <div className="event-info">
+                    <p className={`todo-item ${completed ? "completed" : ""}`}>{event}</p>
+                </div>
+                <div className="edit">
+                    <img alt="edit"
+                        src={edit}
+                        onClick={this.editTodo}
+                        data-edit={id}
+                        title="Edit event!"></img>
+                </div>
+                <div className="check">
+                    <img alt="check"
+                        src={check}
+                        onClick={this.finishTodo}
+                        data-check={id}
+                        title="Finish event!"></img>
+                </div>
+                <div className="undo">
+                    <img alt="undo"
+                        onClick={this.undoTodo}
+                        data-undo={id} src={undo}
+                        title="Undo finish event!"></img>
+                </div>
+                <div className="remove">
+                    <img alt="remove"
+                        src={remove}
+                        onClick={this.deleteTodo}
+                        data-remove={id}
+                        title="Delete event!"></img>
+                </div>
             </div>
         )
-    };
+    }
 };
 
 export default Todo;
