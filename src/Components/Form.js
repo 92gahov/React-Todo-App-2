@@ -163,9 +163,9 @@ class Form extends React.Component {
         let editBtn = <button className="editBtn" onClick={e => this.handleEdit(e)}>Edit event</button>
         let count = "";
         if (this.state.todos.length === 1) {
-            count = "todo"
+            count = "event"
         } else {
-            count = "todos"
+            count = "events"
         };
         return (
             <main>
@@ -173,7 +173,7 @@ class Form extends React.Component {
                     <div>
                         <textarea ref={this.input}
                             value={this.state.title}
-                            onChange={e => this.handleChange(e)} cols="44" rows="3" placeholder="Make event..."></textarea>
+                            onChange={e => this.handleChange(e)} cols="44" rows="3" placeholder="Make an event..."></textarea>
                     </div>
                     <div className="add-btn">
                         {
