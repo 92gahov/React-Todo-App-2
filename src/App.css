@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, #c5d9ed, #9ec2e6, #72aee6);
+}
+
+.main {
+  text-align: center;
+  padding-top: 38px;
+}
+
+textarea {
+  border: 3px solid black;
+  resize: none;
+  padding: 6px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 18px;
+  border-radius: 16px;
+  background-color: #daeafa;
+  -webkit-box-shadow: 4px 2px 18px 0 #111113;
+  -moz-box-shadow: 4px 2px 18px 0 #111113;
+  box-shadow: 4px 2px 18px 0 #111113;
+}
+
+.add-btn {
+  margin-top: 6px;
+  margin-bottom: 30px;
+}
+
+.addBtn {
+  font-size: 20px;
+  padding: 8px;
+  width: 120px;
+  margin-top: 26px;
+  font-weight: bold;
+  background: none;
+  border: 3px solid #040549;
+  color: #040549;
+  transition: 0.4s;
+}
+
+.addBtn:hover {
+  color: white;
+  background: #040549;
+  cursor: pointer;
+  box-shadow: 0 0 5px #040549, 0 0 25px #040549, 0 0 50px #040549, 0 0 100px #040549;
+}
+
+.editBtn {
+  font-size: 20px;
+  padding: 8px;
+  width: 120px;
+  margin-top: 26px;
+  font-weight: bold;
+  background-color: #286319;
+  border: 3px solid #286319;
+  color: white;
+  transition: 0.4s;
+}
+
+.editBtn:hover {
+  color: white;
+  background-color: #286319;
+  cursor: pointer;
+  box-shadow: 0 0 5px #286319, 0 0 25px #286319, 0 0 50px #286319, 0 0 100px #286319;
+}
+
+.output-main {
+  margin-top: 24px;
+}
+
+.output {
+  display: flex;
+  width: 57%;
+  margin: 16px auto;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: #bec0c5;
+  box-shadow: rgba(0, 0, 0, 0.74) 0px 10px 36px 0px, rgba(0, 0, 0, 0.74) 0px 0px 0px 1px;
+}
+
+.event-info {
+  width: 660px;
+  padding: 0 14px 0 90px;
+}
+
+.event-info p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+}
+
+.edit {
+  padding: 22px 6px;
+  height: 22px;
+  width: 24px;
+}
+
+.edit img {
+  width: 24px;
+  height: 24px;
+}
+
+.edit img:hover {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.check {
+  padding: 22px 6px;
+  height: 22px;
+  width: 24px;
+}
+
+.check img {
+  width: 24px;
+  height: 24px;
+}
+
+.check img:hover {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.undo {
+  padding: 22px 6px;
+  height: 22px;
+  width: 24px;
+}
+
+.undo img {
+  width: 24px;
+  height: 24px;
+}
+
+.undo img:hover {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.remove {
+  padding: 22px 6px;
+  height: 22px;
+  width: 24px;
+}
+
+.remove img {
+  width: 24px;
+  height: 24px;
+}
+
+.remove img:hover {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.completed {
+  text-decoration-line: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 4px;
+}
+
+.count {
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: #999eac;
+  width: 300px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.count p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
